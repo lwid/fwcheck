@@ -2,13 +2,6 @@ package fwcheck;
 
 import fwcheck.drools.RuleDB;
 import fwcheck.pojo.FwRule;
-import org.drools.KnowledgeBase;
-import org.drools.KnowledgeBaseFactory;
-import org.drools.builder.KnowledgeBuilder;
-import org.drools.builder.KnowledgeBuilderFactory;
-import org.drools.builder.ResourceType;
-import org.drools.io.ResourceFactory;
-import org.drools.runtime.StatelessKnowledgeSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -31,6 +24,11 @@ public class App
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/spring.xml");
         logger.info("Requesting ruleDb bean from Spring");
         RuleDB ruleDB = (RuleDB) applicationContext.getBean("ruleDb");
+
+        // TBD: Refactor package drools => rules.drools
+        // TBD: Create package rules.neo
+        // TBD: Create meta-checker in rules packages and invoke that one instead
+        // TBD: All these three could implement the same interface potentially (E.g. RuleDb)
 
         // Run some simple tests
         logger.info("Creating test rule");
