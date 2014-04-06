@@ -1,0 +1,10 @@
+package fwcheck.rules
+
+import fwcheck.pojo.FwRule
+
+rule "Allow all http/https"
+when
+    $a : FwRule( dport == 80 || dport == 443)
+then
+    $a.setValid( true );
+end
