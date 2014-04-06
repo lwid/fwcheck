@@ -9,6 +9,6 @@
    <context:annotation-config />
 
     <!-- Define a bean for the Drools database -->
-   <bean id="ruleDb" class="fwcheck.drools.RuleDB"/>
+   <bean id="ruleDb" class="fwcheck.drools.RuleDBImpl"/>
 
 </beans>
